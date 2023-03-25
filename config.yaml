@@ -1,0 +1,5 @@
+---
+baseURL: 'https://votez.plus/'
+languageCode: 'fr-fr'
+title: 'My New Hugo Site'
+theme: 'ananke'

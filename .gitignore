@@ -1,0 +1,4 @@
+public/
+.*.un~
+.*.sw[a-z]
+*.lock
