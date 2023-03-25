@@ -2,3 +2,4 @@ public/
 .*.un~
 .*.sw[a-z]
 *.lock
+_gen

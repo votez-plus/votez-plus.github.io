@@ -1,0 +1,151 @@
+:root {
+  font-family: Ubuntu, sans-serif;
+  --txt-color: #555;
+  --bg-color: #eee;
+  --bg-color-hover: #ddd;
+  --primary-color: #49886b;
+
+  /* https://mycolor.space/?hex=%252349886B */
+  --secondary-color: #007cb9;
+  --accent-color: #deb887;
+
+  --max-width: 52rem;
+
+
+  color: var(--txt-color);
+  background: var(--bg-color);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: grow;
+}
+header {
+  flex-grow: 0;
+  color: var(--primary-color);
+  border-bottom: 1px solid currentColor;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+main {
+  flex-grow: 1;
+}
+footer {
+  flex-grow: 0;
+  margin: 1rem 1rem;
+  font-size: .7rem;
+  text-align: center;
+}
+
+
+a {
+  color: var(--secondary-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+h3 {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+em {
+  font-style: italic;
+}
+
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+header h1.tagline {
+  font-size: inherit;
+  font-style: italic;
+  padding-bottom: 1rem;
+}
+
+#nav a.home {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  padding-left: 0;
+  flex-grow: 3;
+}
+#nav i.plus-sign {
+  color: inherit;
+  border: 3px solid currentColor;
+  border-radius: 100px;
+  aspect-ratio: 1 / 1;
+  width: 0.8em;
+  height: 0.8em;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+#nav {
+  margin: 0;
+  padding: 0;
+
+  padding: 1em 0;
+  display: flex;
+  align-items: baseline;
+}
+
+#nav a {
+  padding: 0 1rem;
+}
+#nav a:hover {
+  text-decoration: underline;
+}
+
+.hero.after-header {
+  margin-top: calc(-2rem - 1px);
+}
+
+.hero {
+  background-color: var(--primary-color);
+  background: linear-gradient(340deg, var(--primary-color) 24%, var(--secondary-color) 86%);
+  color: var(--bg-color);
+  padding: 5rem 0;
+  margin: 2rem 0;
+}
+.hero h1, .hero h2, .hero h3 {
+  color: var(--bg-color);
+}
+
+.container {
+  width: min(var(--max-width), calc(100vw - 2rem));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+

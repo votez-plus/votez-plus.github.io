@@ -1,5 +1,19 @@
 ---
-baseURL: 'https://votez.plus/'
-languageCode: 'fr-fr'
-title: 'My New Hugo Site'
-theme: 'ananke'
+baseURL: https://votez.plus/
+languageCode: fr-fr
+title: votez.plus
+theme: votez_plus
+
+params:
+  tagline: Demandez le vote par approbation
+
+menu:
+  main:
+    - name: Théorie
+      pre: theorie
+      url: /theorie
+      weight: 1
+    - name: Simulateur
+      pre: simulateur
+      url: /simulateur
+      weight: 2
