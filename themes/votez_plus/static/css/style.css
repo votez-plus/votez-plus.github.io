@@ -1,26 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
-  font-family: Ubuntu, sans-serif;
+  --font-base: Ubuntu, sans-serif;
+  --font-accent: 'Libre Baskerville', serif;
+  font-family: var(--font-base);
   --txt-color: #555;
-  --bg-color: #eee;
+  --bg-color: white;
   --bg-color-hover: #ddd;
   --primary-color: #49886b;
 
   /* https://mycolor.space/?hex=%252349886B */
   --secondary-color: #007cb9;
   --accent-color: #deb887;
+  --accent-color: #bd9561;
 
   --max-width: 52rem;
 
+  line-height: 2em;
+
 
   color: var(--txt-color);
-  background: var(--bg-color);
 }
 
 html {
   height: 100%;
 }
+html.dark {
+  filter: invert(1) hue-rotate(180deg) contrast(70%);
+}
 
 body {
+  background: var(--bg-color);
   margin: 0;
   padding: 0;
   height: 100%;
@@ -42,6 +53,10 @@ footer {
   text-align: center;
 }
 
+li,
+p {
+  line-height: 1.4;
+}
 
 a {
   color: var(--secondary-color);
@@ -53,13 +68,17 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
+  font-weight: 900;
+  font-family: var(--font-accent);
+  letter-spacing: -0.05em;
   color: var(--primary-color);
   margin: 1rem 0;
 }
 
 h3 {
   font-weight: bold;
-  color: var(--secondary-color);
+  color: var(--accent-color);
+  margin: 1rem 0;
 }
 
 p {
@@ -147,11 +166,14 @@ header h1.tagline {
   color: var(--bg-color);
 }
 
+main > h3,
+main > p,
 .container {
   width: min(var(--max-width), calc(100vw - 2rem));
   margin-left: auto;
   margin-right: auto;
 }
+
 
 
 
@@ -171,3 +193,9 @@ header h1.tagline {
         ;
 }
 
+
+
+.rendered ul {
+  list-style-type: circle;
+  list-style-position: inside;
+}

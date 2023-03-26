@@ -2,7 +2,7 @@
 <header class="container">
     <nav id="nav" role="navigation" class="nav justify-content-center">
       <a class="home" href="/">
-        <h1><i class="plus-sign">+</i> {{ .Title}}</h1>
+        <h1><i class="plus-sign">+</i> {{ .Site.Title}}</h1>
       </a>
         {{ range .Site.Menus.main }}
         <a class="nav-link" href="{{ .URL }}">
