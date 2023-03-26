@@ -2,7 +2,7 @@
 title: "La théorie"
 date: 2023-03-25T23:07:17+01:00
 layout: page
-draft: true
+draft: false
 ---
 
 Le **vote par approbation** est une méthode de vote alternative qui permet de désigner plus
