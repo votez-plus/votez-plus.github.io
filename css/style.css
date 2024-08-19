@@ -168,11 +168,26 @@ header h1.tagline {
 
 .hero {
   background-color: var(--primary-color);
-  background: linear-gradient(340deg, var(--primary-color) 24%, var(--secondary-color) 86%);
+  background: radial-gradient(circle, var(--primary-color) 15%, var(--secondary-color) 95%);
+  background-size: 200% 300%;
   color: var(--bg-color);
   padding: 5rem 0;
   margin: 2rem 0;
+
+  animation: background-wiggle 30s linear infinite alternate;
 }
+
+@keyframes background-wiggle {
+  0% { background-position: 10% 10% };
+  25% { background-position: 90% 10% };
+  50% { background-position: 90% 90% };
+  75% { background-position: 10% 90% };
+  100% { background-position: 10% 10% };
+}
+
+
+
+
 .hero h1, .hero h2, .hero h3 {
   color: var(--bg-color);
 }
