@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <title>{{ site.name }} | {{ title | default: site.title }} </title>
+</head>
+
+<body>
+    {% include "_header" %}
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" class="colorize-bw" /></a>
+    <br/>
+    <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">votez.plus</span> de <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Florent Jaby</span> est mis à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>. Fondé(e) sur une œuvre à <a xmlns:dct="http://purl.org/dc/terms/" href="https://votez.plus/" rel="dct:source">https://votez.plus/</a>.<br />Les autorisations au-delà du champ de cette licence peuvent être obtenues à <a xmlns:cc="http://creativecommons.org/ns#" href="https://votez.plus/licence" rel="cc:morePermissions">https://votez.plus/licence</a>.
+    </footer>
+</body>
+
+</html>
