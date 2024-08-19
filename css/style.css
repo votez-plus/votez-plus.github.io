@@ -11,8 +11,7 @@
 
   /* https://mycolor.space/?hex=%252349886B */
   --secondary-color: #007cb9;
-  --accent-color: #deb887;
-  --accent-color: #bd9561;
+  --accent-color: #a27328;
 
   --max-width: 52rem;
 
@@ -31,12 +30,14 @@ html.dark {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --txt-color: #aaa;
+    --txt-color: #bbb;
     --bg-color: #222;
+    --bg-color: #282621;
 
     /* https://mycolor.space/?hex=%252349886B */
     --primary-color: #7dbe9e;
     --secondary-color: #00bcff;
+    --accent-color: #bd9561;
   }
 }
 
