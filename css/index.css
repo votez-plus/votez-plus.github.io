@@ -8,3 +8,28 @@
   text-align: center;
   max-width: 33%;
 }
+#hero h2 {
+  text-wrap: balance;
+  border-bottom: solid 1px transparent;
+}
+
+@media(max-width: 48rem) {
+  #hero {
+    display: grid;
+    gap: 0;
+    grid-auto-rows: 1fr;
+  }
+  #hero li {
+    text-align: initial;
+    max-width: initial;
+  }
+
+  #hero li h2 {
+    border-bottom: solid 1px var(--bg-color-transparent);
+    transition: all 1s ease-in-out;
+  }
+  #hero li p {
+    text-align: right;
+    text-wrap: balance;
+  }
+}

@@ -7,6 +7,7 @@
   font-family: var(--font-base);
   --txt-color: #555;
   --bg-color: white;
+  --bg-color-transparent: #ffffff77;
   --primary-color: #49886b;
 
   /* https://mycolor.space/?hex=%252349886B */
@@ -14,6 +15,7 @@
   --accent-color: #a27328;
 
   --max-width: 52rem;
+  --breakpoint: 48rem;
 
   line-height: 2em;
 
@@ -33,6 +35,7 @@ html.dark {
     --txt-color: #bbb;
     --bg-color: #222;
     --bg-color: #282621;
+    --bg-color-transparent: #28262177;
 
     /* https://mycolor.space/?hex=%252349886B */
     --primary-color: #7dbe9e;
@@ -175,6 +178,11 @@ header h1.tagline {
   margin: 2rem 0;
 
   animation: background-wiggle 30s linear infinite alternate;
+}
+@media(max-width: 48rem) {
+  .hero {
+    padding: 1rem 0;
+  }
 }
 
 @keyframes background-wiggle {
