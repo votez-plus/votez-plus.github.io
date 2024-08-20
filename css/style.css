@@ -12,6 +12,8 @@
 
   /* https://mycolor.space/?hex=%252349886B */
   --secondary-color: #007cb9;
+  --secondary-alt-color: #7a72c3;
+
   --accent-color: #a27328;
 
   --max-width: 52rem;
@@ -40,6 +42,7 @@ html.dark {
     /* https://mycolor.space/?hex=%252349886B */
     --primary-color: #7dbe9e;
     --secondary-color: #00bcff;
+    --secondary-alt-color: #8e83ee;
     --accent-color: #bd9561;
   }
 }
@@ -74,6 +77,11 @@ p {
 
 a {
   color: var(--secondary-color);
+}
+main a:visited,
+p >a:visited {
+  color: var(--secondary-color);
+  color: var(--secondary-alt-color);
 }
 
 h1 {
