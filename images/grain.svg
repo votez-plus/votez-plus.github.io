@@ -1,0 +1,25 @@
+<!-- svg: first layer -->
+<svg viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'>
+  <filter id='noiseFilter'>
+    <feTurbulence 
+      type='fractalNoise' 
+      baseFrequency='1.5' 
+      numOctaves='10' 
+      seed="1"
+      stitchTiles='stitch'>
+      
+    </feTurbulence>
+
+    <feColorMatrix type="hueRotate" values="0">
+      <animate
+        attributeName="values" 
+        from="0"
+        to="360"
+        dur="2s"
+        repeatCount="indefinite"
+      />
+    </feColorMatrix>
+  </filter>
+  
+  <rect width='100%' height='100%' filter='url(#noiseFilter)'/>
+</svg>
