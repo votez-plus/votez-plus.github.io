@@ -8,13 +8,13 @@
   --txt-color: #555;
   --bg-color: white;
   --bg-color-transparent: #ffffff77;
-  --primary-color: #49886b;
+  --primary-color: #468266;
 
   /* https://mycolor.space/?hex=%252349886B */
   --secondary-color: #007cb9;
-  --secondary-alt-color: #7a72c3;
+  --secondary-alt-color: #746bbf;
 
-  --accent-color: #a27328;
+  --accent-color: #996b21;
 
   --max-width: 52rem;
   --breakpoint: 48rem;
@@ -79,6 +79,7 @@ a {
   color: var(--secondary-color);
 }
 main a:visited,
+footer a:visited,
 p >a:visited {
   color: var(--secondary-color);
   color: var(--secondary-alt-color);
