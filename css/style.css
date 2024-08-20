@@ -182,6 +182,7 @@ header h1.tagline {
   background-color: var(--primary-color);
   background: radial-gradient(circle, var(--primary-color) 15%, var(--secondary-color) 95%);
   background-size: 200% 300%;
+  background-position: 10% 10%;
   color: var(--bg-color);
   padding: 5rem 0;
   margin: 2rem 0;
@@ -195,11 +196,11 @@ header h1.tagline {
 }
 
 @keyframes background-wiggle {
-  0% { background-position: 10% 10% };
-  25% { background-position: 90% 10% };
-  50% { background-position: 90% 90% };
-  75% { background-position: 10% 90% };
-  100% { background-position: 10% 10% };
+  0%   { background-position: 10% 10% }
+  25%  { background-position: 90% 10% }
+  50%  { background-position: 90% 90% }
+  75%  { background-position: 10% 90% }
+  100% { background-position: 10% 10% }
 }
 
 
