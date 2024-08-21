@@ -1,7 +1,7 @@
 <header class="container">
     <nav id="nav" role="navigation" class="nav justify-content-center">
       <a class="home" href="{{ '/' | url }}">
-        <h1><i class="plus-sign">+</i> {{ site.name }}</h1>
+        <h1><i aria-hidden class="plus-sign">+</i> {{ site.name }}</h1>
       </a>
       {%- for page in collections.page %}
         <a href="{{ page.url }}">{{ page.data.name | default: page.data.title }}</a>
