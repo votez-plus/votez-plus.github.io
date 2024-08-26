@@ -262,9 +262,18 @@ main > p,
         ;
 }
 
-
-
 .rendered ul {
   list-style-type: circle;
   list-style-position: inside;
+}
+
+
+
+
+.faq h3 {
+  display: inline;
+}
+
+.faq a.faq-title {
+  text-decoration: none;
 }

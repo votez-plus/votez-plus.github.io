@@ -1,0 +1,20 @@
+---
+layout: page
+title: La Théorie
+name: Théorie
+tags: [page]
+date: 2024-08-18
+---
+
+
+
+{%- for faq in collections.faq %}
+  <article class="faq" id="{{ faq.fileSlug }}">
+    <a class="faq-title" href="#{{ faq.fileSlug }}">
+      <h3>{{ faq.data.title }}</h3>
+    </a>
+    <p>
+      {{ faq.content }}
+    </p>
+  </article>
+{%- endfor %}
