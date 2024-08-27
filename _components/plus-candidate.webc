@@ -1,16 +1,62 @@
+<div class="voters electoral-mask needs-plus-position"
+     :style="`--plus-horizontal: ${horizontal}; --plus-vertical: ${vertical}`"
+/></div>
 <span
-  class="handle"
+  class="handle needs-plus-position"
   :style="`--plus-horizontal: ${horizontal}; --plus-vertical: ${vertical}`"
   @text="name"
   draggable="true"
 ></span>
+
+<script defer>
+document.addEventListener('DOMContentLoaded', (e) => {
+  const needsPosition = document.querySelectorAll('plus-candidate .needs-plus-position')
+  for (const el of needsPosition) {
+    if(el.classList.contains('plus-position-hydrated')) continue
+    const candidate = el.closest('plus-candidate')
+    if (!candidate) continue
+
+    const observer = new MutationObserver((mutationList, observer) => {
+      const horizontal = candidate.getAttribute('horizontal')
+      const vertical = candidate.getAttribute('vertical')
+      el.style.setProperty('--plus-horizontal', horizontal)
+      el.style.setProperty('--plus-vertical', vertical)
+    })
+    observer.observe(candidate, { attributes: true, childList: false, subtree: false })
+    el.classList.add('plus-position-hydrated');
+  }
+
+})
+</script>
 
 
 <style webc:scoped>
 :host {
   display: content;
 }
+
+:host > .voters {
+  position: absolute;
+  display: block;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, var(--plus-color) 5%, transparent 20%);
+  background-size: 200% 200%;
+  background-position-x: calc(100% - var(--plus-horizontal));
+  background-position-y: var(--plus-vertical);
+  mix-blend-mode: screen;
+  transition: all ease-out 200ms;
+}
+
+@media(prefers-color-scheme: light) {
+  :host > .voters {
+    mix-blend-mode: multiply;
+  }
+
+}
+
 :host .handle  {
+  isolation: isolate;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,14 +87,32 @@
 :host .handle {
   color: var(--bg-color);
 }
-:host:nth-of-type(8n+1) .handle { background: var(--primary-color); }
-:host:nth-of-type(8n+2) .handle { background: var(--secondary-color); }
-:host:nth-of-type(8n+3) .handle { background: var(--secondary-alt-color); }
-:host:nth-of-type(8n+4) .handle { background: var(--accent-color); }
+:host:nth-of-type(4n+1) .voters,
+:host:nth-of-type(4n+1) .handle { --plus-color: var(--primary-color); }
 
-:host:nth-of-type(8n+5) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--primary-color); }
-:host:nth-of-type(8n+6) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--secondary-color); }
-:host:nth-of-type(8n+7) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--secondary-alt-color); }
-:host:nth-of-type(8n+8) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--accent-color); }
+:host:nth-of-type(4n+2) .voters,
+:host:nth-of-type(4n+2) .handle { --plus-color: var(--secondary-color); }
+
+:host:nth-of-type(4n+3) .voters,
+:host:nth-of-type(4n+3) .handle { --plus-color: var(--secondary-alt-color); }
+
+:host:nth-of-type(4n+4) .voters,
+:host:nth-of-type(4n+4) .handle { --plus-color: var(--accent-color); }
+
+:host:nth-of-type(8n+1) .handle,
+:host:nth-of-type(8n+2) .handle,
+:host:nth-of-type(8n+3) .handle,
+:host:nth-of-type(8n+4) .handle {
+  background: var(--plus-color);
+}
+
+:host:nth-of-type(8n+5) .handle,
+:host:nth-of-type(8n+6) .handle,
+:host:nth-of-type(8n+7) .handle,
+:host:nth-of-type(8n+8) .handle {
+  color: var(--plus-color);
+  border: solid 2px currentColor;
+  background: var(--bg-color);
+}
 
 </style>

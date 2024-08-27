@@ -3,6 +3,9 @@ module.exports = class Elecorat {
   radius = 1
   width = 300
   height = 200
+
+  distribution = 'gaussian'
+
   data() {
     return { permalink: '/electorat.svg' }
   }
@@ -31,10 +34,19 @@ module.exports = class Elecorat {
 
   random() {
     let res = 10
+    let generate = this.uniform.bind(this)
+    if (this.distribution === 'gaussian') {
+      generate = this.gaussian.bind(this)
+    }
     while(res >= 1) {
-      res = (this.gaussian(-2, 2) + 1) / 2;
+      res = (generate(-2, 2) + 1) / 2;
     }
     return res
+  }
+
+  uniform(min=0, max=1) {
+    const range = max-min;
+    return (Math.random()*range) + min;
   }
 
   // https://stackoverflow.com/a/49434653

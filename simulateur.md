@@ -7,7 +7,7 @@ date: 2024-08-19
 
 simulateur
 
-<plus-canvas>
+<plus-canvas controls>
     <plus-candidate horizontal="50%" vertical="30%" name="A"></plus-candidate>
     <plus-candidate horizontal="10%" vertical="78%" name="B"></plus-candidate>
     <plus-candidate horizontal="82%" vertical="47%" name="C"></plus-candidate>

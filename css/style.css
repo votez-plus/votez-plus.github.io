@@ -14,14 +14,12 @@
   /* https://mycolor.space/?hex=%252349886B */
   --secondary-color: #007cb9;
   --secondary-alt-color: #746bbf;
-
   --accent-color: #996b21;
 
   --max-width: 52rem;
   --breakpoint: 48rem;
 
   line-height: 2em;
-
 
   color: var(--txt-color);
 }
@@ -278,4 +276,12 @@ main > p,
 
 .faq a.faq-title {
   text-decoration: none;
+}
+
+
+
+.electoral-mask {
+  mask-image: url(/electorat.svg);
+  mask-size: 100% 100%;
+  mask-mode: alpha;
 }

@@ -1,12 +1,108 @@
-<div webc:root class="plus-canvas">
-  <hr class="axis-y">
-  <hr class="axis-x">
-  <div class="electorate" data-src="/electorat.svg"></div>
-  <slot />
+<div webc:root>
+  <div class="plus-canvas">
+    <hr class="axis-y">
+    <hr class="axis-x">
+    <div class="electorate electoral-mask" data-src="/electorat.svg"></div>
+    <slot />
+  </div>
+  <form class="controls">
+    <h3>Paramètres</h3>
+    <template class="control-candidate">
+      <fieldset id="control-candidate" class="candidate">
+        <h4 class="legend">Candidat A</h4>
+        <label for="x">Horizontalement</label>
+        <input id="x" name="x" type="range" min="0" max="100" value="50" step="1" />
+        <label for="y">Verticalement</label>
+        <input id="y" name="y" type="range" min="0" max="100" value="50" step="1" />
+      </fieldset>
+    </template>
+  </form>
 </div>
 
+<script defer>
+document.addEventListener('DOMContentLoaded', () => {
+  const plusCanvases = document.querySelectorAll('plus-canvas')
+
+  for(const canvas of plusCanvases) {
+    const controls = canvas.querySelector('.controls')
+    const template = controls.querySelector('.control-candidate')
+    if (!controls || !template) continue
+    const candidates = canvas.querySelectorAll('plus-candidate')
+    for (const candidate of candidates) {
+      const name = candidate.getAttribute('name')
+      const control = template.content.cloneNode(true)
+      const node = (selector) => control.querySelector(selector)
+      node('#control-candidate').setAttribute('id', `control-candidate-${name}`)
+      node('.legend').innerText = `Candidat ${name}`
+      const idx = `${name}-x`
+      const idy = `${name}-y`
+
+      node('label[for=x]').setAttribute('for', idx)
+      node('label[for=y]').setAttribute('for', idy)
+
+      const inputx = node('input#x')
+      inputx.value = candidate.getAttribute('horizontal').replace('%', '')
+      inputx.setAttribute('name', idx)
+      inputx.setAttribute('id', idx)
+      inputx.addEventListener('change', debounce((e) => {
+        const pos = `${inputx.value}%`
+        candidate.setAttribute('horizontal', pos)
+      }))
+
+      const inputy = node('input#y')
+      inputy.value = candidate.getAttribute('vertical').replace('%', '')
+      inputy.setAttribute('name', idy)
+      inputy.setAttribute('id', idy)
+      inputy.addEventListener('change', debounce((e) => {
+        const pos = `${inputy.value}%`
+        candidate.setAttribute('vertical', pos)
+      }))
+
+      controls.appendChild(control)
+    }
+
+
+    controls.classList.add('visible')
+  }
+})
+
+function debounce (fn, delay=10) {
+  let timeout = null
+  return function (...args) {
+    if(timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(fn.bind(null, ...args), delay)
+  }
+}
+</script>
+
+
 <style webc:scoped>
-  :host {
+  :host .controls {
+    display: none;
+    &.visible {
+      display: initial;
+    }
+  }
+  :host .controls  .candidate  {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1rem;
+
+    .legend {
+      display: inline;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      font-weight: bold;
+      text-align: right;
+    }
+  }
+
+
+  :host > .plus-canvas {
+    overflow: visible;
     color: var(--txt-color);
     position: relative;
     display: block;
@@ -16,7 +112,7 @@
     box-shadow: 3px 3px 10px var(--shadow-color);
   }
 
-  :host::before {
+  :host >. plus-canvas::before {
     content: '';
     position: absolute;
     display: block;
@@ -54,24 +150,25 @@
     background-image: linear-gradient(to bottom, transparent, var(--axis-color), transparent);
   }
 
-  :host .electorate {
+  :host > .plus-canvas > .electorate {
     position: absolute;
     top:0; left:0;
     width: 100%; height: 100%;
-    mask-image: url(/electorat.svg);
-    mask-size: 100% 100%;
-    mask-mode: alpha;
     background-color:  currentColor;
     background: 
-      radial-gradient(circle, color-mix(in srgb, currentColor, transparent 80%) 25%, transparent 70%),
+      radial-gradient(circle, color-mix(in srgb, currentColor, transparent 75%) 25%, transparent 70%);
+    /*
       radial-gradient(circle, var(--primary-color) 5%, transparent 20%),
       radial-gradient(circle, var(--secondary-color) 5%, transparent 20%),
       radial-gradient(circle, var(--secondary-alt-color) 5%, transparent 20%);
+      */
     background-position:
-      50% 50%,
+      50% 50%;
+    /*
       50% 30%,
       90% 78%,
       18% 47%;
+      */
     background-size: 200% 200%;
     background-blend-mode: screen;
   }
