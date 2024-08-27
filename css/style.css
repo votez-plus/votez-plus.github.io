@@ -9,6 +9,7 @@
   --bg-color: white;
   --bg-color-transparent: #ffffff77;
   --primary-color: #468266;
+  --shadow-color: color-mix(in srgb, var(--txt-color), transparent 70%);
 
   /* https://mycolor.space/?hex=%252349886B */
   --secondary-color: #007cb9;
@@ -38,6 +39,7 @@ html.dark {
     --bg-color: #222;
     --bg-color: #282621;
     --bg-color-transparent: #28262177;
+    --shadow-color: #191919;
 
     /* https://mycolor.space/?hex=%252349886B */
     --primary-color: #7dbe9e;

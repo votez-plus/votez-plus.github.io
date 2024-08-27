@@ -1,0 +1,54 @@
+<span
+  class="handle"
+  :style="`--plus-horizontal: ${horizontal}; --plus-vertical: ${vertical}`"
+  @text="name"
+  draggable="true"
+></span>
+
+
+<style webc:scoped>
+:host {
+  display: content;
+}
+:host .handle  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin:0;
+  background: red;
+  width: max(2.5rem, 8%);
+  aspect-ratio: 1/1;
+  position: absolute;
+  left: var(--plus-horizontal);
+  bottom: var(--plus-vertical);
+  border: none;
+  transform: translate3d(-50%, 50%, 0);
+
+  border-radius: 50%;
+  font-size: 1.8em;
+
+  font-family: var(--font-accent);
+  box-shadow: 3px 3px 10px var(--shadow-color);
+
+  transition: all ease-out 200ms;
+}
+
+:host [draggable=true] {
+  cursor: move;
+}
+
+:host .handle {
+  color: var(--bg-color);
+}
+:host:nth-of-type(8n+1) .handle { background: var(--primary-color); }
+:host:nth-of-type(8n+2) .handle { background: var(--secondary-color); }
+:host:nth-of-type(8n+3) .handle { background: var(--secondary-alt-color); }
+:host:nth-of-type(8n+4) .handle { background: var(--accent-color); }
+
+:host:nth-of-type(8n+5) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--primary-color); }
+:host:nth-of-type(8n+6) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--secondary-color); }
+:host:nth-of-type(8n+7) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--secondary-alt-color); }
+:host:nth-of-type(8n+8) .handle { border: solid 2px currentColor; background: var(--bg-color); color: var(--accent-color); }
+
+</style>
